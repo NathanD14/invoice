@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "http://localhost:9010/api/invoice/getAllInvoices",
+        url: "http://localhost:8000/api/invoice/getAllInvoices",
     })
     .then(function(result) {
         var items = "";

@@ -67,15 +67,15 @@
 				<!-- <div class="input-container"><input type="text" ng-model="invoice.customer_info.address1"/></div> -->
 				<!-- <div class="input-container"><input type="text" ng-model="invoice.customer_info.address2"/></div> -->
 				<!-- <div class="input-container"><input type="text" ng-model="invoice.customer_info.postal"/></div> -->
-				<div class="input-container" style="font-weight:bold;font-size:15px">BILLED TO: Eco Ventures Pvt. Ltd.</div>
+				<div class="input-container" style="font-weight:bold;font-size:15px">BILLED TO: Health Tech Pivot LLP.</div>
 				<div class="input-container" style="font-size:1px">&nbsp;</div>
-				<div class="input-container">Mr. Aditya Paranjpe</div>
-				<div class="input-container">7/8 Bhaveshwar Bhuvan, Near Dindayal Upadhyay Udyan,</div>
-				<div class="input-container">Opp. Portuguese Church, Gokhale Road (N), Dadar (W),</div>
-				<div class="input-container">Mumbai – 400028 , Maharashtra.</div>
+				<div class="input-container">Mr. Ameya Shete</div>
+				<div class="input-container">A 107 Arjum Center, </div>
+				<div class="input-container">BKS Devashi Marg, Govandi,</div>
+				<div class="input-container">Mumbai – 400088 , Maharashtra.</div>
 				<div class="input-container" style="font-size:1px">&nbsp;</div>
-				<div class="input-container">Contact Details: +91 22 2437 0520 / 2437 6672</div>
-				<div class="input-container">ecoventures.mumbai@gmail.com</div>
+				<div class="input-container">Contact Details: +91 9820386004</div>
+				<div class="input-container">ameya@pivotsmartflow.com</div>
 				<div class="input-container" data-ng-hide='printMode'>
 					<select ng-model='currencySymbol' ng-options='currency.symbol as currency.name for currency in availableCurrencies'></select>
 				</div>
@@ -229,7 +229,7 @@
 
 			console.log(saveData);
 			$.ajax({
-				url: "http://localhost:9010/api/invoice/addInvoice",
+				url: "http://localhost:8000/api/invoice/addInvoice",
 				type: "POST",
 				data: saveData
 			})
@@ -247,7 +247,7 @@
 		// get invoice ids
 		$(document).ready(function() {
 		    $.ajax({
-		        url: "http://localhost:9010/api/invoice/getAllInvoices",
+		        url: "http://localhost:8000/api/invoice/getAllInvoices",
 		    })
 		    .then(function(result) {
 		    	console.log('result: ', result);
@@ -269,31 +269,31 @@
 		    	$('.note-points')[0].innerHTML += notes[index].outerHTML;
 		    }
 		}
-		// // select invoice id
-		// $('#invoice-number').on('change', function() {
-		// 	console.log('selected value: ', $('#invoice-number')[0].selectedOptions[0].innerText);
-		// 		var data={};
-		// 		if($('#invoice-number')[0].selectedOptions[0].innerText=="New Invoice") {
-		// 			$('#invoice-number')[0].selectedOptions[0].innerText = $('#invoice-number')[0].children.length;
-		// 		}
+		// select invoice id
+		$('#invoice-number').on('change', function() {
+			console.log('selected value: ', $('#invoice-number')[0].selectedOptions[0].innerText);
+				var data={};
+				if($('#invoice-number')[0].selectedOptions[0].innerText=="New Invoice") {
+					$('#invoice-number')[0].selectedOptions[0].innerText = $('#invoice-number')[0].children.length;
+				}
 
-		// 		// $.ajax({
-		// 		// 		url: "http://localhost:9010/api/invoice/getInvoice",
-		// 		// 		type: "POST",
-		// 		// 		data: data,
-		// 		// 		dataType: "object"
-		// 		// })
-		// 		// .then(function(result) {
-		// 		// 		if(result.success) {
-		// 		// 		}
-		// 		// 		else {
-		// 		// 				alert('Oops! Something went wrong. Please try again.');
-		// 		// 		}
-		// 		// })
-		// 		// .catch(function(error) {
-		// 		// 		alert('Oops! Something went wrong. Please try again.');
-		// 		// });
-		// });
+				$.ajax({
+						url: "http://localhost:8000/api/invoice/getInvoice",
+						type: "POST",
+						data: data,
+						dataType: "object"
+				})
+				.then(function(result) {
+						if(result.success) {
+						}
+						else {
+								alert('Oops! Something went wrong. Please try again.');
+						}
+				})
+				.catch(function(error) {
+						alert('Oops! Something went wrong. Please try again.');
+				});
+		});
 	</script>
 	<!-- <div ng-hide="printMode" class="copy noPrint">
 		<a href="http://jasdeep.ca/?utm_source=angular_invoicing">Jasdeep Singh</a> &amp;

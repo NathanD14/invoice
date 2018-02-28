@@ -1,0 +1,18 @@
+steps to install db
+    install brew
+    *   brew update
+    *   brew install mongodb
+    *   mkdir -p /data/db
+    *   sudo chown -R `id -un` /data/db
+    *
+
+
+
+
+billing
+    getBillingDetails
+
+
+myDetails
+    getMyDetails
+
