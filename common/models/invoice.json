@@ -1,0 +1,78 @@
+{
+  "name": "invoice",
+  "plural": "invoice",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mongodb": {
+    "collection": "invoice"
+  },
+  "settings": {
+    "mongodb": {
+      "allowExtendedOperators": true
+    }
+  },
+  "properties": {
+    "invoiceID": {
+      "type": "number",
+      "required": true
+    },
+    "myDetailID": {
+      "type": "number",
+      "required": true
+    },
+    "BillingID": {
+      "type": "number",
+      "required": true
+    },
+    "invoiceDate": {
+      "type": "date",
+      "required": true
+    },
+    "items": {
+      "type": [
+        "object"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string"
+      ]
+    },
+    "tax": {
+      "type": "number",
+      "default": 0
+    },
+    "Total": {
+      "type": "number",
+      "default": 0
+    },
+    "AmountDue": {
+      "type": "number",
+      "default": 0
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "billedTo": {
+      "type": "belongsTo",
+      "model": "billing",
+      "foreignKey": "BillingID",
+      "primaryKey": "BillingID"
+    },
+    "billedFrom": {
+      "type": "belongsTo",
+      "model": "myDetails",
+      "foreignKey": "myDetailID",
+      "primaryKey": "myDetailID"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

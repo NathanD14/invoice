@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Invoicing - Built with AngularJS</title>
+	<meta charset='utf-8'>
+	<meta name="description" content="AngularJS and Angular Code Example for creating Invoices and Invoicing Application">
+	<script src="https://use.fontawesome.com/2ae1a0a29d.js"></script>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+<body ng-app="invoicing" ng-controller="InvoiceCtrl" >
+	<div class="container" width="800px" id="invoice" >
+		<div class="row">
+			<div class="col-xs-12 heading">
+				INVOICE
+			</div>
+		</div>
+		<div class="row branding">
+			<div class="col-xs-6" style="font-size:15px">
+				<div class="invoice-number-container col-xs-12">
+					<label for="invoice-number">Invoice #</label>
+					<span id="invoice-number">
+
+					</span>
+					<!-- <input type="text" id="invoice-number" ng-model="invoice.invoice_number" /> -->
+					<!-- <label for="invoice-number">Invoice #</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="invoice-number" ng-model="invoice.invoice_number" /> -->
+				</div>
+				<!-- <div class="invoice-number-container col-xs-12">
+					<label for="invoice-date">Invoice Date: </label><input type="text" id="invoice-date" ng-model="invoice.invoice_date" />
+					<label for="invoice-date">Invoice Date</label>&nbsp;&nbsp;&nbsp;<input type="text" id="invoice-date" ng-model="invoice.invoice_date" />
+				</div> -->
+			</div>
+			<div class="col-xs-6" style="font-size:15px" align="right">
+				<!-- <div class="invoice-number-container col-xs-12">
+					<label for="invoice-number">Invoice #</label><input type="text" id="invoice-number" ng-model="invoice.invoice_number" />
+					<label for="invoice-number">Invoice #</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="invoice-number" ng-model="invoice.invoice_number" />
+				</div> -->
+				<div class="invoice-number-container col-xs-12" align="right">
+					<label for="invoice-date">Invoice Date: </label><input type="text" id="invoice-date"/>
+					<!-- <script>
+					    var today = new Date().toUTCString().substr(5,11);
+					    console.log(today);
+					    $('#invoice-date')[0].value = today;
+					</script> -->
+					<!-- <label for="invoice-date">Invoice Date</label>&nbsp;&nbsp;&nbsp;<input type="text" id="invoice-date" ng-model="invoice.invoice_date" /> -->
+				</div>
+			</div>
+			<!-- <div class="col-xs-6 logo-container">
+				<input type="file" id="imgInp" />
+				<img ng-hide="logoRemoved" id="company_logo" ng-src="{{ logo }}" alt="your image" width="300" hidden />
+				<div>
+					<div class="noPrint" ng-hide="printMode">
+						<a ng-click="editLogo()" href >Edit Logo</a>
+						<a ng-click="toggleLogo()" id="remove_logo" href >{{ logoRemoved ? 'Show' : 'Hide' }} logo</a>
+					</div>
+				</div>
+			</div> -->
+		</div>
+		<div class="row infos">
+			<div class="col-xs-7">
+				<!-- <div class="input-container"><input type="text" ng-model="invoice.customer_info.name"/></div> -->
+				<!-- <div class="input-container"><input type="text" ng-model="invoice.customer_info.web_link"/></div> -->
+				<!-- <div class="input-container"><input type="text" ng-model="invoice.customer_info.address1"/></div> -->
+				<!-- <div class="input-container"><input type="text" ng-model="invoice.customer_info.address2"/></div> -->
+				<!-- <div class="input-container"><input type="text" ng-model="invoice.customer_info.postal"/></div> -->
+				<div class="input-container" style="font-weight:bold;font-size:15px">BILLED TO: Eco Ventures Pvt. Ltd.</div>
+				<div class="input-container" style="font-size:1px">&nbsp;</div>
+				<div class="input-container">Mr. Aditya Paranjpe</div>
+				<div class="input-container">7/8 Bhaveshwar Bhuvan, Near Dindayal Upadhyay Udyan,</div>
+				<div class="input-container">Opp. Portuguese Church, Gokhale Road (N), Dadar (W),</div>
+				<div class="input-container">Mumbai – 400028 , Maharashtra.</div>
+				<div class="input-container" style="font-size:1px">&nbsp;</div>
+				<div class="input-container">Contact Details: +91 22 2437 0520 / 2437 6672</div>
+				<div class="input-container">ecoventures.mumbai@gmail.com</div>
+				<div class="input-container" data-ng-hide='printMode'>
+					<select ng-model='currencySymbol' ng-options='currency.symbol as currency.name for currency in availableCurrencies'></select>
+				</div>
+			</div>
+			<div class="col-xs-5 right">
+				<!-- <div class="input-container"><input type="text" ng-model="invoice.company_info.name"/></div> -->
+				<!-- <div class="input-container"><input type="text" ng-model="invoice.company_info.web_link"/></div> -->
+				<!-- <div class="input-container"><input type="text" ng-model="invoice.company_info.address1"/></div> -->
+				<!-- <div class="input-container"><input type="text" ng-model="invoice.company_info.address2"/></div> -->
+				<!-- <div class="input-container"><input type="text" ng-model="invoice.company_info.postal"/></div> -->
+				<!-- <div class="input-container" style="font-weight:bold;font-size:15px">
+					<label for="invoice-number">Invoice #</label><input type="text" id="invoice-number" ng-model="invoice.invoice_number" style="width:10%; font-weight:bold;" />
+				</div>
+				<div class="input-container" style="font-weight:bold;font-size:15px">INVOICE DATE: November 18, 2017</div> -->
+				<div class="input-container">&nbsp;</div>
+				<div class="input-container" style="font-size:1px">&nbsp;</div>
+				<div class="input-container">Ms. Natasha D'Lima</div>
+				<div class="input-container">Mumbai, Maharashtra</div>
+				<div class="input-container">&nbsp;</div>
+				<div class="input-container">&nbsp;</div>
+				<div class="input-container" style="font-size:1px">&nbsp;</div>
+				<div class="input-container">Contact Details: +91 98680 01286</div>
+				<div class="input-container">natashadlima1@gmail.com</div>
+			</div>
+		</div>
+		<div class="items-table">
+			<div class="row header">
+				<div class="col-xs-1">S.No.</div>
+				<div class="col-xs-7">Description</div>
+				<div class="col-xs-2">No. of words</div>
+				<!-- <div class="col-xs-2">Cost {{currencySymbol}}</div> -->
+				<div class="col-xs-2 text-right">Sub-Total {{currencySymbol}}</div>
+			</div>
+			<div class="row invoice-item" ng-repeat="item in invoice.items" ng-animate="'slide-down'">
+				<div class="col-xs-1 remove-item-container" align="center">
+					{{invoice.items.indexOf(item)+1}}
+					<a href ng-hide="printMode" ng-click="removeItem(item)" class="btn btn-danger" title="Remove item"><i class="fa fa-trash" aria-hidden="true"></i></a>
+				</div>
+				<div class="col-xs-7 input-container">
+					<input ng-model="item.item" placeholder="Item" />
+					<input ng-model="item.description" placeholder="Description" />
+				</div>
+				<div class="col-xs-2 input-container">
+					<input ng-model="item.qty" value="1" size="4" ng-required ng-validate="integer" placeholder="Quantity" />
+				</div>
+				<!-- <div class="col-xs-2 input-container">
+					<input ng-model="item.cost" value="0.00" ng-required ng-validate="number" size="6" placeholder="Cost" />
+				</div> -->
+				<div class="col-xs-2 text-right input-container">
+					{{item.cost * item.qty | currency: currencySymbol}}
+				</div>
+			</div>
+			<div class="row invoice-item">
+				<div class="col-xs-1 add-item-container" ng-hide="printMode">
+					<a class="btn btn-primary" href ng-click="addItem()" title="Add item"><i class="fa fa-plus" aria-hidden="true"></i></a>
+				</div>
+				<div class="col-xs-7 add-item-container" ng-hide="printMode">
+					<p style="color:#888888">Add a new item</p>
+					<!-- <a class="btn btn-primary" href ng-click="addItem()" >[+]</a> -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-10 text-right">Total</div>
+				<div class="col-xs-2 text-right" id="total">{{invoiceSubTotal() | currency: currencySymbol}}</div>
+			</div>
+			<!-- <div class="row">
+				<div class="col-xs-10 text-right">Tax(%): <input ng-model="invoice.tax" ng-validate="number" style="width:43px"></div>
+				<div class="col-xs-2 text-right">{{calculateTax() | currency: currencySymbol}}</div>
+			</div> -->
+			<div class="row" style="font-weight:bold">
+				<div class="col-xs-10 text-right">Amount Due:</div>
+				<div class="col-xs-2 text-right" id="amount">{{calculateGrandTotal() | currency: currencySymbol}}</div>
+			</div>
+		</div>
+		<div class="row">
+			&nbsp;
+		</div>
+		<div class="row">
+			&nbsp;
+		</div>
+		<div class="row notes">
+			<b>Notes:</b>
+			<ul class="note-points">
+				<li id="addNewNote" ng-hide="this.printMode"><input id="newNote" type="text" placeholder="Add a note" style='width:70%'/>  <button class="btn btn-primary" onclick="addNote()" title="Add Note"><i class="fa fa-plus" aria-hidden="true"></i></button></li>
+				<li class="note">This is an electronically generated invoice. No signature required.</li>
+			</ul>
+		</div>
+		<div class="row">
+			&nbsp;
+		</div>
+		<div class="row noPrint actions">
+			<a href="#" class="btn btn-primary" ng-show="printMode" ng-click="printInfo()">Print</a>
+			<a href="#" class="btn btn-primary" ng-click="clearLocalStorage()">Reset</a>
+			<a href="#" class="btn btn-primary" ng-hide="printMode" ng-click="printMode = true;" onclick="togglenotes()">Turn On Print Mode</a>
+			<a href="#" class="btn btn-primary" ng-show="printMode" ng-click="printMode = false;" onclick="togglenotes()">Turn Off Print Mode</a>
+			<a class="btn btn-primary" onclick="save()">Save to Database</a>
+			<a class="btn btn-primary" onclick="viewdb()">View Database</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var visible = true;
+		function togglenotes() {
+		    if(visible) {
+		    	visible=false;
+		    	$('#addNewNote').hide();
+		    	$('.add-item-container').parent().hide();
+		    }
+		    else {
+		    	visible=true;
+		    	$('#addNewNote').show();
+		    	$('.add-item-container').parent().show();
+		    }
+		}
+		function viewdb() {
+		    if(confirm('You will lose all unsaved changes. Continue?')) {
+		    	console.log('true');
+		    	window.location.href= "db.html";
+		    }
+		    else {
+		    	console.log('false');
+	    	}
+		}
+
+		function save() {
+		    var saveData = {};
+		    saveData.invoiceID = $('#invoice-number').text()-0;
+			saveData.invoiceDate = $('#invoice-date').val();//today;
+			saveData.myDetailID = 1;
+			saveData.BillingID = 1;
+			saveData.tax = 0;
+			saveData.Total = parseInt($('#total').text().substr(1).replace(',',''));
+			saveData.AmountDue = parseInt($('#amount').text().substr(1).replace(',',''));
+			saveData.isActive = 1;
+			saveData.items = [];
+			var items = $('.row.invoice-item.ng-scope');
+			for(var i=0; i<items.length; i++) {
+				var item = {};
+				item.itemNo = items[i].children[0].innerText;
+				item.itemName = items[i].children[1].children[0].value;
+				item.itemDescription = items[i].children[1].children[1].value;
+				item.itemQty = items[i].children[2].children[0].value;
+				item.itemCost = 2;
+
+				saveData.items.push(item);
+			}
+			// var notes = $('.note');
+			saveData.notes = [
+				"Uniform pricing at ₹2/- per word.",
+				"This is an electronically generated invoice. No signature required."
+			];
+
+			console.log(saveData);
+			$.ajax({
+				url: "http://localhost:9010/api/invoice/addInvoice",
+				type: "POST",
+				data: saveData
+			})
+			.then(function(saveResult) {
+			    if(saveResult.success) {
+			    	alert('Invoice saved successfully!');
+			    	clearLocalStorage();
+			    }
+			    else {
+			    	alert('Oops! Something went wrong, try again.')
+			    }
+			})
+		}
+
+		// get invoice ids
+		$(document).ready(function() {
+		    $.ajax({
+		        url: "http://localhost:9010/api/invoice/getAllInvoices",
+		    })
+		    .then(function(result) {
+		    	console.log('result: ', result);
+				$('#invoice-number')[0].innerHTML = "";
+				$('#invoice-number')[0].innerHTML += result.data[result.data.length-1].invoiceID +1;
+		    })
+		});
+
+		function addNote() {
+		    console.log('note added');
+		    var note = $('#newNote').val();
+		    var noteText = "<li class='note'><input type='text' style='width:70%' value=\""+note+"\"></li>";
+		    $('#newNote').val("");
+		    var newNote = $('.note-points').children()[0].outerHTML;
+		    var notes = $('.note-points').children();
+		    notes = notes.slice(1);
+		    $('.note-points')[0].innerHTML = newNote + noteText;
+		    for(var index=0; index<notes.length; index++) {
+		    	$('.note-points')[0].innerHTML += notes[index].outerHTML;
+		    }
+		}
+		// // select invoice id
+		// $('#invoice-number').on('change', function() {
+		// 	console.log('selected value: ', $('#invoice-number')[0].selectedOptions[0].innerText);
+		// 		var data={};
+		// 		if($('#invoice-number')[0].selectedOptions[0].innerText=="New Invoice") {
+		// 			$('#invoice-number')[0].selectedOptions[0].innerText = $('#invoice-number')[0].children.length;
+		// 		}
+
+		// 		// $.ajax({
+		// 		// 		url: "http://localhost:9010/api/invoice/getInvoice",
+		// 		// 		type: "POST",
+		// 		// 		data: data,
+		// 		// 		dataType: "object"
+		// 		// })
+		// 		// .then(function(result) {
+		// 		// 		if(result.success) {
+		// 		// 		}
+		// 		// 		else {
+		// 		// 				alert('Oops! Something went wrong. Please try again.');
+		// 		// 		}
+		// 		// })
+		// 		// .catch(function(error) {
+		// 		// 		alert('Oops! Something went wrong. Please try again.');
+		// 		// });
+		// });
+	</script>
+	<!-- <div ng-hide="printMode" class="copy noPrint">
+		<a href="http://jasdeep.ca/?utm_source=angular_invoicing">Jasdeep Singh</a> &amp;
+		<a href="http://github.com/manpreetrules">Manpreet Singh</a>
+		Made with
+		<span class="love">&#9829;</span> in Toronto by
+		<a href="http://metawarelabs.com/?utm_source=angular_invoicing">Metaware Labs Inc.</a>
+	</div> -->
+</body>
+</html>

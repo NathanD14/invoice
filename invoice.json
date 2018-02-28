@@ -1,0 +1,12 @@
+{
+	"apps": [
+		{
+			"name": "INVOICE (9010)",
+			"script": "~/invoice/server/server.js",
+			"args" : "start",
+			"watch": ["~/invoice/"],
+			"ignore-watch": ["~/invoice/node_modules/"],
+		}
+	]
+}
+

@@ -1,0 +1,53 @@
+{
+  "name": "billing",
+  "plural": "billing",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mongodb": {
+    "collection": "billing"
+  },
+  "settings": {
+    "mongodb": {
+      "allowExtendedOperators": true
+    }
+  },
+  "properties": {
+    "BillingID": {
+      "type": "number",
+      "required": true
+    },
+    "Company": {
+      "type": "string",
+      "required": true
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "AddressLine1": {
+      "type": "string",
+      "required": true
+    },
+    "AddressLine2": {
+      "type": "string"
+    },
+    "AddressLine3": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

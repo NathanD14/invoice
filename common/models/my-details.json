@@ -1,0 +1,50 @@
+{
+  "name": "myDetails",
+  "plural": "myDetails",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mongodb": {
+    "collection": "myDetails"
+  },
+  "settings": {
+    "mongodb": {
+      "allowExtendedOperators": true
+    }
+  },
+  "properties": {
+    "myDetailID": {
+      "type": "number",
+      "required": true
+    },
+    "Name": {
+      "type": "string",
+      "required": true,
+      "default": "Ms. Natasha D'Lima"
+    },
+    "AddressLine1": {
+      "type": "string",
+      "required": true
+    },
+    "AddressLine2": {
+      "type": "string"
+    },
+    "AddressLine3": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
